@@ -1,0 +1,49 @@
+# WARNING: template code, may need edits
+# Model Configuration
+model:
+  name: "CatClassifier"
+  input_size: 224
+  num_classes: 2
+  dropout: 0.3
+
+# Training Configuration
+train:
+  epochs: 50
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  early_stopping_patience: 10
+  save_best_only: true
+  
+# Data Configuration
+data:
+  train_dir: "data/train"
+  test_dir: "data/test"
+  image_size: 224
+  num_workers: 4
+  train_split: 0.8
+  val_split: 0.2
+
+# Augmentation
+augmentation:
+  horizontal_flip: true
+  rotation_range: 15
+  brightness: 0.2
+  contrast: 0.2
+  
+# Hardware
+hardware:
+  device: "cuda"  # cuda or cpu
+  mixed_precision: true
+  pin_memory: true
+  
+# Paths
+paths:
+  model_dir: "models"
+  output_dir: "outputs"
+  log_dir: "runs"
+  
+# Inference
+inference:
+  confidence_threshold: 0.5
+  batch_inference: false
